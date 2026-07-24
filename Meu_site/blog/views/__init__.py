@@ -1,14 +1,12 @@
-from django.views.generic import DetailView, ListView
-from ..models import Post
+from django.http import HttpResponse
+from django.views import View
 
 
-class PostList(ListView):
-    model = Post
-    template_name = "blog/post_list.html"
-    context_object_name = "posts"
+class PostList(View):
+    def get(self, request):
+        return HttpResponse("Hello World")
 
 
-class PostDetail(DetailView):
-    model = Post
-    template_name = "blog/post_detail.html"
-    context_object_name = "post"
+class PostDetail(View):
+    def get(self, request, pk):
+        return HttpResponse("Hello World")
